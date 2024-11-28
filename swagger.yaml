@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+  title: Your API Title
+  version: 1.0.0
+  description: A brief description of your API
+servers:
+  - url: https://api.example.com/v1
+paths:
+  /users:
+    post:
+      summary: Adding a user
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              example:
+                id: 1
+                name: John Doe
+    get:
+      summary: Retrieve a list of users
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              example:
+                users:
+                  - id: 1
+                    name: John Doe
+                  - id: 2
+                    name: Jane Doe
+  /users/{userId}:
+    get:
+      summary: Retrieve a user by ID
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              example:
+                id: 1
+                name: John Doe
+                email: john@example.com
